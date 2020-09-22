@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">User Vitals</string>
+    <string name="no_network">It seems you have lost internet.</string>
+    <string name="network_available">Internet is back.</string>
 </resources>
