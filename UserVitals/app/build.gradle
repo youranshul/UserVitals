@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.android.uservitals"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", '"https://run.mocky.io/"')
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$recycler_ver"
+    implementation "androidx.cardview:cardview:$cardViewVer"
+    implementation "com.android.support:design:$design_ver"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_ver"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_ver"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "androidx.core:core-ktx:$coreKtxVer"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navFragVer"
+    implementation "androidx.navigation:navigation-ui-ktx:$navFragVer"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava_version"
+    implementation "com.squareup.retrofit2:converter-jackson:$jackson_converter"
+
+    //unit testing
+    implementation "junit:junit:${junit_version}"
+    implementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockito_core_version}"
+    implementation "org.mockito:mockito-inline:${mockito_inline_version}"
+
+}
