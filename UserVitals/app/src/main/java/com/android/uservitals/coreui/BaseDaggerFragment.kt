@@ -34,6 +34,8 @@ abstract class BaseDaggerFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        progressBar = view.findViewById(R.id.progressBar)
+        errorView = view.findViewById(R.id.error_text)
         onViewCreationCompleted(view)
         bindUiSignalLiveData()
     }
@@ -41,11 +43,11 @@ abstract class BaseDaggerFragment : DaggerFragment() {
     private fun bindUiSignalLiveData() {
         getUiSignalLiveData().observe(viewLifecycleOwner, Observer {
             when (it) {
-                UiSignal.LOADING_VISIBLE -> progressBar?.visibility = View.VISIBLE
-                UiSignal.LOADING_GONE -> progressBar?.visibility = View.GONE
-                UiSignal.ERROR_MSG -> errorView?.visibility = View.VISIBLE
-                UiSignal.NO_INTERNET -> networkGone()
-                UiSignal.INTERNET_AVAILABLE -> networkAvailable()
+                is UiSignal.loading -> progressBar?.visibility = View.VISIBLE
+                is UiSignal.Success<*> -> progressBar?.visibility = View.GONE
+                is UiSignal.Failure -> errorView?.visibility = View.VISIBLE
+                /*UiSignal.NO_INTERNET -> networkGone()
+                UiSignal.INTERNET_AVAILABLE -> networkAvailable()*/
                 else -> progressBar?.visibility = View.GONE
             }
         })
@@ -54,7 +56,8 @@ abstract class BaseDaggerFragment : DaggerFragment() {
     private fun networkAvailable() {
         view?.let {
             Snackbar.make(
-                it, resources.getString(R.string.network_available), Snackbar.LENGTH_SHORT).show()
+                it, resources.getString(R.string.network_available), Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 

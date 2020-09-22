@@ -1,4 +1,4 @@
-package com.test.interview.di
+package com.android.uservitals.coreui.di
 
 import com.android.uservitals.coreui.UserVitalApp
 import com.android.uservitals.coreui.di.viewmodel.ActivityBindingModule

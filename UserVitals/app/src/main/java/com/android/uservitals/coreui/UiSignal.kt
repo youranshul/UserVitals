@@ -1,15 +1,10 @@
 package com.android.uservitals.coreui
 
-enum class UiSignal() {
+sealed class UiSignal {
 
-    LOADING_VISIBLE,
 
-    LOADING_GONE,
-
-    ERROR_MSG,
-
-    NO_INTERNET,
-
-    INTERNET_AVAILABLE
+    object loading : UiSignal()
+    data class Success<T>(val data: T) : UiSignal()
+    data class Failure(val exception: String) : UiSignal()
 
 }

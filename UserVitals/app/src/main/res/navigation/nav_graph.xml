@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/userVitalsFragment"
-        android:name="com.android.uservitals.coreui.FragmentA"
+        android:name="com.android.uservitals.coreui.screens.vitals.UserVitalsFragment"
         android:label="VitalsFragment">
         <action
             android:id="@+id/action_VitalsFragment_to_DetailsFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/VitalsDetailsFragment"
-        android:name="com.android.uservitals.coreui.FragmentA"
+        android:name="com.android.uservitals.coreui.screens.vitals.UserVitalsFragment"
         android:label="DetailsFragment">
         <argument
             android:name="type"
