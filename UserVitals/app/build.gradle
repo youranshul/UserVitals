@@ -60,12 +60,13 @@ dependencies {
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutinesAdapterVer"
     implementation "com.squareup.retrofit2:converter-jackson:$jackson_converter"
 
     //unit testing
     implementation "junit:junit:${junit_version}"
     implementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockito_core_version}"
     implementation "org.mockito:mockito-inline:${mockito_inline_version}"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVer"
 
 }
