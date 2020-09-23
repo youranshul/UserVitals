@@ -1,5 +1,6 @@
 package com.android.uservitals.coreui.screens.vitals
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.core.os.bundleOf
@@ -36,13 +37,20 @@ class UserVitalsFragment : BaseDaggerFragment(), OnItemClickListener {
         return R.layout.user_vitals
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(UserVitalsViewModel::class.java)
+
+        viewModel.fetchVitals()
+    }
+
     override fun onViewCreationCompleted(view: View) {
         activity?.setTitle(R.string.app_name)
         userName = view.findViewById(R.id.userName)
         userDob = view.findViewById(R.id.dob)
         userCity = view.findViewById(R.id.place)
-        viewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(UserVitalsViewModel::class.java)
+
         val viewManager = LinearLayoutManager(requireContext())
         recycleView = view.findViewById<RecyclerView>(R.id.recycle_view).apply {
             setHasFixedSize(true)
@@ -58,7 +66,6 @@ class UserVitalsFragment : BaseDaggerFragment(), OnItemClickListener {
             }
 
         })
-        viewModel.fetchVitals()
     }
 
     private fun updateHeaderView(name: String, dob: String, city: String) {

@@ -39,7 +39,7 @@ class VitalsAdapter(
 
         fun bind(vitals: Vitals) {
             type.text = vitals.type
-            maxVal.text = vitals.maxValue
+            maxVal.text = "${vitals.maxValue} ${vitals.unit}"
             date.text = vitals.date
         }
     }
