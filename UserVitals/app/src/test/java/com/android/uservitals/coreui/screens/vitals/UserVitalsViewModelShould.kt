@@ -1,8 +1,8 @@
 package com.android.uservitals.coreui.screens.vitals
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android.example.livedatabuilder.util.getOrAwaitValue
 import com.android.uservitals.coreui.UiSignal
+import com.android.uservitals.domain.UserVitalsViewModel
 import com.android.uservitals.domain.VitalsFetchService
 import com.android.uservitals.util.CoroutineTestRule
 import com.nhaarman.mockitokotlin2.mock
@@ -32,7 +32,10 @@ class UserVitalsViewModelShould {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        viewModel = UserVitalsViewModel(service, coroutineTestRule.testDispatcher)
+        viewModel = UserVitalsViewModel(
+            service,
+            coroutineTestRule.testDispatcher
+        )
     }
 
     @Test

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="review_item">10dp</dimen>
-    <dimen name="avtar_margin">5dp</dimen>
     <dimen name="detailsImageHeight">210dp</dimen>
     <dimen name="marginAllSides5dp">5dp</dimen>
     <dimen name="margintop10">10dp</dimen>

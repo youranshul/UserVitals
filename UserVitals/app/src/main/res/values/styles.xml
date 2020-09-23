@@ -17,17 +17,8 @@
         <item name="android:ellipsize">marquee</item>
     </style>
 
-    <style name="reviewDetailsHeadlineText">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:layout_margin">@dimen/marginAllSides5dp</item>
-        <item name="android:background">@android:drawable/screen_background_dark_transparent</item>
-    </style>
-
-    <style name="reviewDetailsTextStyle">
+    <style name="mainScreenHeaderTextStyle">
+        <item name="android:layout_margin">@dimen/margin5</item>
         <item name="android:textColor">#16624B</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">normal</item>

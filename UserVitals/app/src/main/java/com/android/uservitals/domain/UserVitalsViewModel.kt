@@ -1,10 +1,9 @@
-package com.android.uservitals.coreui.screens.vitals
+package com.android.uservitals.domain
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.uservitals.coreui.UiSignal
-import com.android.uservitals.domain.VitalsFetchService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,10 +27,10 @@ class UserVitalsViewModel @Inject constructor(
                 vitalsFetchService.fetchVitals()
             }
             result.onSuccess {
-                liveData.value = UiSignal.Success(it)
+                liveData.postValue(UiSignal.Success(it))
 
             }.onFailure {
-                liveData.value = UiSignal.Failure
+                liveData.postValue(UiSignal.Failure)
             }
         }
     }

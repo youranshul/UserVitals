@@ -4,7 +4,6 @@ import com.android.uservitals.coreui.UserVitalApp
 import com.android.uservitals.coreui.di.viewmodel.ActivityBindingModule
 import com.android.uservitals.coreui.di.viewmodel.ViewModelModule
 import com.test.nymovie.di.AppModule
-import com.test.nymovie.di.RetrofitModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

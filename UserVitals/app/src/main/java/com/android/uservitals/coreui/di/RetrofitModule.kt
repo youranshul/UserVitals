@@ -1,4 +1,4 @@
-package com.test.nymovie.di
+package com.android.uservitals.coreui.di
 
 import com.android.uservitals.BuildConfig
 import com.android.uservitals.data.VitalRemoteService

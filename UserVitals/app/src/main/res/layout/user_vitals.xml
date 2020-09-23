@@ -12,12 +12,14 @@
 
         <TextView
             android:id="@+id/userName"
+            style="@style/mainScreenHeaderTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Anshul Upadhyay" />
 
         <TextView
             android:id="@+id/dob"
+            style="@style/mainScreenHeaderTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/userName"
@@ -25,11 +27,18 @@
 
         <TextView
             android:id="@+id/place"
+            style="@style/mainScreenHeaderTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             tools:ignore="RelativeOverlap"
             tools:text="Bangalore" />
+
+        <include
+            layout="@layout/ui_singals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

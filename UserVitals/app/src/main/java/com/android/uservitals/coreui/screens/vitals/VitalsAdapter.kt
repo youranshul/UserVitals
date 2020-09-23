@@ -41,10 +41,6 @@ class VitalsAdapter(
             type.text = vitals.type
             maxVal.text = vitals.maxValue
             date.text = vitals.date
-
-            /*itemView.setOnClickListener {
-                listener.onItemClicked(review.title, review.byline)
-            }*/
         }
     }
 
