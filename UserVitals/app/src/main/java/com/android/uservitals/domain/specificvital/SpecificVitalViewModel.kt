@@ -1,4 +1,4 @@
-package com.android.uservitals.domain.vitals
+package com.android.uservitals.domain.specificvital
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -8,18 +8,22 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class UserVitalsViewModel @Inject constructor(
-    private val vitalsFetchService: VitalsFetchService,
+class SpecificVitalViewModel @Inject constructor(
+    private val specificVitalService: SpecificVitalService,
     private val dispatcher: CoroutineDispatcher
 ) :
     BaseViewModel() {
 
-    fun fetchVitals() {
+    public override fun getUiState(): MutableLiveData<UiSignal> {
+        return liveData
+    }
+
+    fun fetchSpecificVital(type: String) {
         liveData.value = UiSignal.loading
         viewModelScope.launch(dispatcher) {
 
             val result = kotlin.runCatching {
-                vitalsFetchService.fetchVitals()
+                specificVitalService.fetchSpecificVital(type)
             }
             result.onSuccess {
                 liveData.postValue(UiSignal.Success(it))
@@ -30,7 +34,5 @@ class UserVitalsViewModel @Inject constructor(
         }
     }
 
-    public override fun getUiState(): MutableLiveData<UiSignal> {
-        return liveData
-    }
+
 }

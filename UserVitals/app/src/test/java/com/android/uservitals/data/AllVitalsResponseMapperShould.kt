@@ -1,5 +1,6 @@
 package com.android.uservitals.data
 
+import com.android.uservitals.data.vitals.AllVitalsResponseMapper
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
@@ -8,14 +9,6 @@ import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
 
 class AllVitalsResponseMapperShould {
-
-    val NAME = "testName"
-    val AGE = "testAge"
-    val CITY = "testCity"
-    val TYPE = "testType"
-    val UNIT = "testUnit"
-    val MAX_VAL = "90"
-
 
     @Rule
     @JvmField
@@ -55,15 +48,33 @@ class AllVitalsResponseMapperShould {
     }
 
 
-    private fun getResponseForNull(): UserVitals {
-        return UserVitals(null, null, null, null)
+
+
+    companion object {
+        const val NAME = "testName"
+        const val AGE = "testAge"
+        const val CITY = "testCity"
+        const val TYPE = "testType"
+        const val UNIT = "testUnit"
+        const val MAX_VAL = "90"
+        fun getResponse(): UserVitals {
+            val values = arrayListOf<String>("80", MAX_VAL)
+            val dates = arrayListOf<String>("31/08/2020", "1/09/2020")
+            val vitals = Vital(TYPE, UNIT, dates, values)
+            return UserVitals(NAME, AGE, CITY, arrayListOf<Vital>(vitals))
+        }
+
+        fun getResponseWithColon(): UserVitals {
+            val values = arrayListOf<String>("80:12", "90:50")
+            val dates = arrayListOf<String>("31/08/2020", "1/09/2020")
+            val vitals = Vital(TYPE, UNIT, dates, values)
+            return UserVitals(NAME, AGE, CITY, arrayListOf<Vital>(vitals))
+        }
+
+        fun getResponseForNull(): UserVitals {
+            return UserVitals(null, null, null, null)
+        }
     }
 
 
-    private fun getResponse(): UserVitals {
-        val values = arrayListOf<String>("80", MAX_VAL)
-        val dates = arrayListOf<String>("31/08/2020", "1/09/2020")
-        val vitals = Vital(TYPE, UNIT, dates, values)
-        return UserVitals(NAME, AGE, CITY, arrayListOf<Vital>(vitals))
-    }
 }

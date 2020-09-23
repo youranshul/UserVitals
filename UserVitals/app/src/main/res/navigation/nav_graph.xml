@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/VitalsDetailsFragment"
-        android:name="com.android.uservitals.coreui.screens.vitals.SpecificVitalFragment"
+        android:name="com.android.uservitals.coreui.screens.vitalcharts.SpecificVitalFragment"
         android:label="DetailsFragment">
         <argument
             android:name="type"

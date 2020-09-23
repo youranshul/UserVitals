@@ -15,7 +15,7 @@ class VitalsAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VitalsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.review_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         val holder = VitalsViewHolder(view)
         holder.itemView.setOnClickListener { onClickVital(holder.adapterPosition) }
         return holder

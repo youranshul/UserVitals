@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseViewModel : ViewModel() {
 
-    abstract fun provideUiSignalLiveData(): MutableLiveData<UiSignal>
+    protected val liveData = MutableLiveData<UiSignal>()
 
-    override fun onCleared() {
-        super.onCleared()
-    }
+    protected abstract fun getUiState(): MutableLiveData<UiSignal>
 }

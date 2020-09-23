@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.uservitals.R
 import com.android.uservitals.coreui.BaseDaggerFragment
 import com.android.uservitals.coreui.UiSignal
+import com.android.uservitals.coreui.screens.vitalcharts.SpecificVitalFragment
 import com.android.uservitals.domain.vitals.AllVitals
 import com.android.uservitals.domain.vitals.UserVitalsViewModel
 import javax.inject.Inject

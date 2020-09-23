@@ -22,10 +22,10 @@ internal abstract class VitalModule {
     @ContributesAndroidInjector
     internal abstract fun contributeUserVitalFragment(): UserVitalsFragment
 
-    @Binds
+      @Binds
     @IntoMap
     @ViewModelKey(UserVitalsViewModel::class)
-    internal abstract fun bindMovieReviewsListViewModel(viewModel: UserVitalsViewModel): ViewModel
+    internal abstract fun bindUserVitalViewModel(viewModel: UserVitalsViewModel): ViewModel
 
     @Binds
     internal abstract fun providesFetchVitalsService(service: VitalsDataRepository): VitalsFetchService
