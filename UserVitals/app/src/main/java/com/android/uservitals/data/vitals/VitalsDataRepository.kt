@@ -1,8 +1,10 @@
-package com.android.uservitals.data
+package com.android.uservitals.data.vitals
 
-import com.android.uservitals.domain.AllVitals
+import com.android.uservitals.data.UserVitals
+import com.android.uservitals.data.VitalRemoteService
+import com.android.uservitals.domain.vitals.AllVitals
 import com.android.uservitals.domain.DataMapper
-import com.android.uservitals.domain.VitalsFetchService
+import com.android.uservitals.domain.vitals.VitalsFetchService
 import javax.inject.Inject
 
 class VitalsDataRepository @Inject constructor(

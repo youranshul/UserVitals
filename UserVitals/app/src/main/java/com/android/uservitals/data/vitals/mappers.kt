@@ -1,8 +1,9 @@
-package com.android.uservitals.data
+package com.android.uservitals.data.vitals
 
-import com.android.uservitals.domain.AllVitals
+import com.android.uservitals.data.UserVitals
 import com.android.uservitals.domain.DataMapper
-import com.android.uservitals.domain.Vitals
+import com.android.uservitals.domain.vitals.AllVitals
+import com.android.uservitals.domain.vitals.Vitals
 import javax.inject.Inject
 
 class AllVitalsResponseMapper @Inject constructor() : DataMapper<UserVitals, AllVitals> {
@@ -31,11 +32,21 @@ class AllVitalsResponseMapper @Inject constructor() : DataMapper<UserVitals, All
                 val unit = vital.unit
                 val max = vital.values?.max()
                 var date: String
-                var vitalModel = Vitals(type, unit, "", "")
+                var vitalModel = Vitals(
+                    type,
+                    unit,
+                    "",
+                    ""
+                )
                 max?.let {
                     val idx = vital.values.indexOf(max)
                     date = vital.dates?.get(idx).toString()
-                    vitalModel = Vitals(type, unit, date, max)
+                    vitalModel = Vitals(
+                        type,
+                        unit,
+                        date,
+                        max
+                    )
                 }
                 listOfVitals.add(vitalModel)
             }

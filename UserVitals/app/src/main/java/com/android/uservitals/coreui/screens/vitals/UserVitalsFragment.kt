@@ -2,17 +2,19 @@ package com.android.uservitals.coreui.screens.vitals
 
 import android.view.View
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.uservitals.R
 import com.android.uservitals.coreui.BaseDaggerFragment
 import com.android.uservitals.coreui.UiSignal
-import com.android.uservitals.domain.AllVitals
-import com.android.uservitals.domain.UserVitalsViewModel
+import com.android.uservitals.domain.vitals.AllVitals
+import com.android.uservitals.domain.vitals.UserVitalsViewModel
 import javax.inject.Inject
 
 class UserVitalsFragment : BaseDaggerFragment(), OnItemClickListener {
@@ -69,6 +71,10 @@ class UserVitalsFragment : BaseDaggerFragment(), OnItemClickListener {
     }
 
     override fun onItemClicked(type: String) {
-        //navigate to details page
+        findNavController().navigate(
+            R.id.action_VitalsFragment_to_DetailsFragment, bundleOf(
+                SpecificVitalFragment.TITLE to type
+            )
+        )
     }
 }

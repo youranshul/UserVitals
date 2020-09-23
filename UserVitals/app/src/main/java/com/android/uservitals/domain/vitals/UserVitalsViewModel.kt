@@ -1,4 +1,4 @@
-package com.android.uservitals.domain
+package com.android.uservitals.domain.vitals
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

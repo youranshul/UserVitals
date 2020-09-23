@@ -57,6 +57,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navFragVer"
     implementation "androidx.navigation:navigation-ui-ktx:$navFragVer"
 
+    //charts
+    implementation "com.github.PhilJay:MPAndroidChart:$chartVer"
+
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"

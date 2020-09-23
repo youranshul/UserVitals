@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.uservitals.R
-import com.android.uservitals.domain.Vitals
+import com.android.uservitals.domain.vitals.Vitals
 
 class VitalsAdapter(
     private val listOfVitals: List<Vitals>,

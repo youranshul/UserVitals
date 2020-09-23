@@ -1,4 +1,4 @@
-package com.android.uservitals.domain
+package com.android.uservitals.domain.vitals
 
 data class AllVitals(
     val name: String,

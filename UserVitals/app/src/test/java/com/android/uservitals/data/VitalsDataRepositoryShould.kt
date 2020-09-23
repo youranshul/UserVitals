@@ -1,6 +1,7 @@
 package com.android.uservitals.data
 
-import com.android.uservitals.domain.AllVitals
+import com.android.uservitals.data.vitals.VitalsDataRepository
+import com.android.uservitals.domain.vitals.AllVitals
 import com.android.uservitals.domain.DataMapper
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.runBlocking
@@ -28,7 +29,11 @@ class VitalsDataRepositoryShould {
 
     @Before
     fun setUp() {
-        vitalsDataRepository = VitalsDataRepository(retrofit, mapper)
+        vitalsDataRepository =
+            VitalsDataRepository(
+                retrofit,
+                mapper
+            )
 
     }
 
