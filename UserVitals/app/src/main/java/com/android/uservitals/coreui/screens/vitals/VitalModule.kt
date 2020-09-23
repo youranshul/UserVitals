@@ -11,8 +11,11 @@ import com.android.uservitals.domain.VitalsFetchService
 import com.test.nymovie.di.FragmentScoped
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 
 @Module
 internal abstract class VitalModule {
